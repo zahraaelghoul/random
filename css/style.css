@@ -1,154 +1,167 @@
-/***** STARTER CODE - DO NOT CHANGE *****/
-
-html{
-  scroll-behavior: smooth;
+body {
+    font-family: Poppins, serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
 }
 
-body{
-  background-color: #737373;
-  font-size: 18px;
-  margin: 0;
-  padding: 0;
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
 }
 
-h1{
-  font-size: 50px;
-  line-height: 1;
-  padding: 50px 0;
-  text-align: center;
-  color:white;
+.nav_links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-h2{
-  font-size: 32px;
-  line-height: 1.5;
+a:visited {
+    color: inherit;
 }
 
-nav{
-  background-color: #ddd;
-  padding: 25px 10px;;    
-  text-align: left;   
+/* a:link {
+    color: inherit;
 }
 
-nav a{
-  color: black;
-  font-weight: bold;
+a:hover {
+    color: inherit;
+}
+  
+a:active {
+    color: inherit;
 }
 
-nav ul{
-  list-style-type: none;
+a:focus {
+    color: inherit;
+} */
+
+.card > header {
+    background: #288088;
+    border: solid 2px #45ADAD;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
 }
 
-nav li{
-  display: inline;
-  margin-right: 5%;
+.pricing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-header p{
-  color: white;
-  font-size: 24px;
-  padding: 0 100px;
-  text-align: center;
+.card {
+    flex-basis: 450px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
 }
 
-.text{
-  background-color: rgba(255, 255, 255, .8);
-  border: 10px solid black;
-  padding: 30px;
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap
 }
 
-footer{
-  background-color: black;
-  color: white;
-  padding: 15px 0;
-  text-align: center;
+.gallery img {
+    border: solid 10px #50C7C7; 
+    margin: 10px;
+    width: 300px;
 }
 
-footer a,
-footer a:visited{
-  color: white;
-}
-/*****  End Starter Code ****/
-
-/* Requirement 1 code here*/
-
-nav a{
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
+@keyframes logo {
+    from {
+        width: 25px;
+        opacity: 0;
+    }
+    to {
+        width: 475px;
+        opacity: 1;
+    }
 }
 
-/* Requirement 2 code here*/
-
-nav:hover {
-  text-decoration: underline;  
-  text-decoration-color: black;  
-  text-decoration-style: wavy;
+#logo {
+    animation-name: logo;
+    animation-duration: 5s;
 }
 
-a.skip{
-  background: white;
-  padding: 6px;
-  -webkit-transition: top 1s ease-out;
-  transition: left 1s ease-out;
-  z-index: 1;
-  position: absolute;
-  overflow: hidden;
-  left: -500px;
+@media only screen and (min-width: 900px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .nav_links {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: space-between;
+        /* flex-direction: column;
+        align-items: center; */
+    }
+
+    .pricing {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        /* flex-shrink: 5; */
+    }
+
+    .card {
+        flex-basis: 250px;
+    }
+
+    body > header {
+        position: sticky;
+        top: 0;
+    }
+} 
+
+@media only screen and (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+    }
 }
 
+@media print {
 
-/* Requirement 4 code here*/
+    body {
+        font-family:Arial, Helvetica, sans-serif;
+        background-image: none;
+    }
 
+    header {
+        flex-direction: column;
+        justify-content: space-between;
+    }
 
-.container{
-  /* Requirement 5 code here*/
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+        /* flex-direction: column;
+        align-items: center; */
+        justify-content: space-between;
+    }
 
-}
+    .pricing {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: flex-end;
+    }
 
-/* Requirements 6-10 here: */
+    .card {
+        flex-basis: 325px;
+        border: solid 2px #45ADDD;
+    }
 
+    .gallery {
+        display: none;
+    }
 
-
-@media screen and (min-width: 700px){
-  nav{
-    padding-top: 35px;
-    /*Requirement 11*/
-
+    .card li:nth-child(2):after {
+        content: "\1F44D";
+      }
+  
   }
-
-  nav li{
-    margin-left: 5%;
-    margin-right:0;
-  }
-
-  /* Requirements 12-15 here: */
-
-}
-
-
-
-
-
-
-/** Code for prefers reduced motion **/
-/* Make no changes below this line.
-   *************************************** 
-   */
-@media screen and (prefers-reduced-motion: reduce){
-  /*Turn off scroll*/
-  html{
-    scroll-behavior: auto; /* Removes scroll animation */
-  }
-
-  /*Turn off transition*/
-  a.skip {
-    -webkit-transition: initial; /* sets to default setting */
-    transition: initial; /* sets to default setting */
-  }
-
-  /*Turn off parallax*/
-  .intro{
-    background-attachment: initial;
-  }
-}
